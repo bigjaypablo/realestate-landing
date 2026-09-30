@@ -8,7 +8,7 @@ const serviceArea = 'Greater Austin, TX'
 
 export const siteConfig: SiteConfig = {
   // Set to false before launch to hide "Sample" / "Placeholder" badges.
-  showPlaceholderLabels: false,
+  showPlaceholderLabels: true,
 
   businessName: 'Alder & Finch Realty',
 

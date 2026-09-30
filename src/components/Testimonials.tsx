@@ -9,7 +9,7 @@ export function Testimonials() {
   return (
     <Section id="testimonials" tone="tint" labelledBy="testimonials-heading">
       <SectionHeading id="testimonials-heading" title="What clients say" />
-      <div className="mt-10 grid gap-10 md:grid-cols-2">
+      <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial) => (
           <TestimonialCard key={testimonial.id} testimonial={testimonial} />
         ))}

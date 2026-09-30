@@ -9,7 +9,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     <figure className="border-l-2 border-accent pl-6">
       {showBadge && (
         <span className="mb-3 inline-block rounded-full bg-ink/80 px-2.5 py-1 text-xs font-semibold text-white">
-          Placeholder
+          Sample testimonial
         </span>
       )}
       <blockquote className="font-display text-xl leading-relaxed text-ink">{text}</blockquote>
