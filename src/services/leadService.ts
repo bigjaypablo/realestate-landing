@@ -5,12 +5,12 @@ import type { LeadFormValues, LeadPayload } from '../types'
  * LEAD DELIVERY LAYER
  *
  * The form calls submitLead() and knows nothing about your CRM.
- * Set VITE_LEAD_WEBHOOK_URL in .env to send leads to a webhook:
+ * Set VITE_LEAD_WEBHOOK_URL in your environment to send leads to a webhook:
  *   Zapier "Catch Hook", Make, GoHighLevel inbound webhook, Google Apps Script, etc.
  *
  * HubSpot / Follow Up Boss / other CRMs need private keys. Never put those in
- * frontend code. Deploy a tiny serverless function (Cloudflare Worker, Netlify or
- * Vercel function) that holds the key, then point VITE_LEAD_WEBHOOK_URL at it.
+ * frontend code. Deploy a tiny serverless function that holds the key, then
+ * point VITE_LEAD_WEBHOOK_URL at it.
  * To add a custom integration, write a LeadAdapter and return it from resolveAdapter().
  */
 export interface LeadAdapter {
@@ -50,14 +50,19 @@ function buildPayload(values: LeadFormValues): LeadPayload {
 const webhookAdapter = (url: string): LeadAdapter => ({
   name: 'webhook',
   async submit(payload) {
-    // text/plain keeps this a "simple" request (no CORS preflight), which
-    // Zapier, Make and Apps Script webhooks accept. The body is still JSON.
+    // Google Apps Script does not send CORS headers, so its reply cannot be read.
+    // no-cors still delivers the request, and a network failure still throws.
+    const isAppsScript = url.includes('script.google.com')
     const response = await fetch(url, {
       method: 'POST',
+      mode: isAppsScript ? 'no-cors' : 'cors',
+      // text/plain keeps this a "simple" request (no CORS preflight).
       headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
       body: JSON.stringify(payload),
     })
-    if (!response.ok) throw new Error(`Lead endpoint responded with ${response.status}`)
+    if (!isAppsScript && !response.ok) {
+      throw new Error(`Lead endpoint responded with ${response.status}`)
+    }
   },
 })
 
