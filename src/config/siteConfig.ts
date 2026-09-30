@@ -29,7 +29,7 @@ export const siteConfig: SiteConfig = {
     phoneDisplay: '(512) 555-0142',
     whatsapp: '15125550142', // country code + number, digits only
     whatsappMessage:
-      "Hi, I found your website and I'd like to talk about buying or selling a home.",
+      "Hi Daniel, I found Alder & Finch Realty online and I'd like to talk about buying or selling a home in Greater Austin.",
     email: 'hello@example.com',
   },
 
