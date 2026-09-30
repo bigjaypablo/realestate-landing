@@ -48,10 +48,10 @@ export function Footer() {
           </div>
 
           <address className="text-sm not-italic leading-relaxed md:text-right">
-            <a href={telHref()} className="block text-base font-medium text-white hover:underline">
+            <a href={telHref()} className="block py-2 text-base font-medium text-white hover:underline">
               {contact.phoneDisplay}
             </a>
-            <a href={mailHref()} className="block hover:underline">
+            <a href={mailHref()} className="block py-2 hover:underline">
               {contact.email}
             </a>
           </address>

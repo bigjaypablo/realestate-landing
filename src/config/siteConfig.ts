@@ -68,6 +68,8 @@ export const siteConfig: SiteConfig = {
       alt: 'Modern home exterior at sunset',
       width: 1600,
       height: 900,
+      srcSet: '/images/hero-poster-800.jpg 800w, /images/hero-poster.jpg 1600w',
+      sizes: '100vw',
       // For real photos, add e.g.:
       // srcSet: '/images/hero-800.webp 800w, /images/hero-1600.webp 1600w',
       // sizes: '100vw',

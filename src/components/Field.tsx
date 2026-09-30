@@ -30,7 +30,7 @@ export function Field({ id, label, required, error, hint, className = '', childr
             {' '}*
           </span>
         ) : (
-          <span className="font-normal text-ink/60"> (optional)</span>
+          <span className="font-normal text-ink/75"> (optional)</span>
         )}
       </label>
       {children}
