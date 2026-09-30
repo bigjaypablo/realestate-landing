@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#16352F" />
+    <title>%VITE_SEO_TITLE%</title>
+    <meta name="description" content="%VITE_SEO_DESCRIPTION%" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="%VITE_SEO_TITLE%" />
+    <meta property="og:description" content="%VITE_SEO_DESCRIPTION%" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_OG_IMAGE%" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- If you change the hero image path in siteConfig, update this preload too. -->
+    <link rel="preload" as="image" href="/images/hero-poster.jpg" fetchpriority="high" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Please enable JavaScript to view this page, or call us directly.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
